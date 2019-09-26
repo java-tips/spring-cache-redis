@@ -41,7 +41,7 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... strings) {
 	  //Populating embedded database here
-	  LOG.info("Saving Customers. Current user count is {}.", customerRepository.count());
+	  LOG.info("Saving Customers. Current count is {}.", customerRepository.count());
 	  Customer ols = new Customer("Oneide Luiz", new Random().nextLong());
 	  Customer l = new Customer("Luiz", new Random().nextLong());
 	  Customer m = new Customer("Mario", new Random().nextLong());
@@ -49,6 +49,7 @@ public class Application implements CommandLineRunner {
 	  customerRepository.save(ols);
 	  customerRepository.save(l);
 	  customerRepository.save(m);
+	  LOG.info("Now Current count is {}.", customerRepository.count());
 	  LOG.info("Done saving Customers. Data: {}.", customerRepository.findAll());
 	}
     

@@ -1,9 +1,13 @@
 package com.cache.redis;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
+   
+    private static final long serialVersionUID = -5334006640444795390L;
 
     @Id
     private Long id;
@@ -32,6 +36,16 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            "}";
+    }
+
 
 }
    
